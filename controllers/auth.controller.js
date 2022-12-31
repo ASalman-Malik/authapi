@@ -7,7 +7,6 @@ var jwt = require("jsonwebtoken")
 var bcrypt =  require("bcryptjs")
 
 exports.signup = (req, res) => {
-    console.log("Username =================================================>", req.body.username)
     const user = new User({
         username : req.body.username,
         email: req.body.email,
@@ -36,7 +35,7 @@ exports.signup = (req, res) => {
                         return;
                     }
                     res.send({message: "User was registered successfully"})
-                })
+                });
             })
         }else{
             Role.findOne({name : "user"}, (err,role) => {
