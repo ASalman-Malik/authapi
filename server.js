@@ -14,6 +14,9 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
+require("./routes/auth.routes")(app)
+require("./routes/user.routes")(app)
+
 //DB Connection 
 mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`,{
     useNewUrlParser : true,
