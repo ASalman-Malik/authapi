@@ -79,7 +79,7 @@ exports.signin = (req, res) => {
                 message : "Invalid Password"
             })
         }
-        var token = jw.sign({id:user.id}, config.secret,{
+        var token = jwt.sign({id:user.id}, config.secret,{
             expiresIn: 86400 //24 hours
         })
         var authorities = [];
